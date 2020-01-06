@@ -1,4 +1,9 @@
 {
-  "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }]]
+  "presets": ["next/babel", "@babel/preset-typescript", "@babel/preset-env"],
+  "plugins": [
+    ["styled-components", { "ssr": true }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-object-assign",
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
 }
