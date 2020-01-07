@@ -35,6 +35,7 @@ const Title = styled.h2`
   padding: 0 1em;
 
   @media (min-width: 768px) {
+    padding: 0;
     font-size: 3em;
   }
 
