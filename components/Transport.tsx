@@ -3,50 +3,61 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
   justify-content: center;
+  align-items: center;
   background-color: #677282;
-  padding: 5em 1em;
+  padding: 8em 2em;
 
   @media (min-width: 768px) {
-    padding: 5em 2em;
-    justify-content: center;
+    padding: 8em 4em;
   }
 
   @media (min-width: 1024px) {
-    padding: 5em 4em;
-    justify-content: center;
-  }
-
-  @media (min-width: 1280px) {
-    justify-content: space-between;
+    padding: 8em 5em;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 `;
 
 const Image = styled.img`
-  height: auto;
+  height: 180px;
   width: 100%;
 
   @media (min-width: 768px) {
-    width: 600px;
+    height: 400px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 240px;
+    width: 440px;
+  }
+
+  @media (min-width: 1280px) {
+    height: auto;
+    width: 680px;
   }
 `;
 
 const Section = styled.section`
   width: auto;
 
-  @media (min-width: 1280px) {
-    width: 400px;
+  @media (min-width: 1024px) {
+    width: 450px;
   }
 `;
 
 const Title = styled.h2`
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
 
   @media (min-width: 768px) {
     font-size: 3rem;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 4rem;
   }
 `;
 

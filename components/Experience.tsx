@@ -43,9 +43,7 @@ const Box = styled.div`
   box-sizing: border-box;
 
   @media (min-width: 640px) {
-    margin: 0 6em;
     height: 40%;
-    justify-content: space-around;
   }
 
   @media (min-width: 768px) {
@@ -62,17 +60,19 @@ const Box = styled.div`
 const TitleBox = styled.h2`
   color: #677282;
   font-weight: 800;
-  font-size: 2em;
-  margin-top: 0;
+  font-size: 3em;
+  margin: 0;
+`;
 
-  /* For phones smaller than 400px the font-size looks bad */
-  @media (min-width: 400px) {
-    font-size: 3em;
+const Options = styled.section`
+  padding-bottom: 1em;
+
+  &:last-child {
+    padding-bottom: 0;
   }
 `;
 
 const IconContainer = styled.span`
-  list-style-type: none;
   vertical-align: middle;
   display: inline-block;
 `;
@@ -109,26 +109,26 @@ export const Experience = () => {
       <Box>
         <TitleBox>Nuestra experiencia nos respalda.</TitleBox>
         <div>
-          <section>
+          <Options>
             <IconContainer>
               <Icon src="/Icons/cake.svg" alt="cake" />
             </IconContainer>
             <Anchor>+3 años</Anchor>
-          </section>
+          </Options>
 
-          <section>
+          <Options>
             <IconContainer>
               <Icon src="/Icons/done_all.svg" alt="done all" />
             </IconContainer>
             <Anchor>+250 viajes completados</Anchor>
-          </section>
+          </Options>
 
-          <section>
+          <Options>
             <IconContainer>
               <Icon src="/Icons/directions_car.svg" alt="directions car" />
             </IconContainer>
             <Anchor>+5000 Km recorridos</Anchor>
-          </section>
+          </Options>
         </div>
       </Box>
       {trucks.map((truck, index) => (

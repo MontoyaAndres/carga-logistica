@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { pushToContact } from "../utils/pushToContact";
+
 const Title = styled.h2`
   color: #677282;
   font-weight: 800;
@@ -38,6 +40,12 @@ const Card = styled.div`
   grid-template-rows: 50px 2fr auto;
   padding: 1em;
   margin-bottom: 1em;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 
   @media (min-width: 1024px) {
     padding: 2em;
@@ -86,7 +94,7 @@ export const Services = () => {
       <Title>Nuestros servicios</Title>
       <Wrapper>
         {dataCard.map((card, index) => (
-          <Card key={index}>
+          <Card key={index} onClick={() => pushToContact()}>
             <TitleCard>{card.title}</TitleCard>
             <DescriptionCard>{card.description}</DescriptionCard>
             <ActionsCard>

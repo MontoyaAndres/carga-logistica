@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styled from "styled-components";
-import scrollIntoView from "smooth-scroll-into-view-if-needed";
 
 import { Footer } from "../components/Footer";
+import { pushToContact } from "../utils/pushToContact";
 
 interface PhoneSectionProps {
   isMenuOpen: boolean;
@@ -114,14 +114,8 @@ const Button = styled.button`
 export const Layout = ({ children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  function pushContact() {
-    const node = document.querySelector("#form");
-
-    scrollIntoView(node, {
-      scrollMode: "if-needed",
-      block: "nearest",
-      inline: "nearest"
-    });
+  function push() {
+    pushToContact();
     setMenuOpen(false);
   }
 
@@ -144,7 +138,7 @@ export const Layout = ({ children }) => {
             <PhoneLogo src="/Icons/phone_callback.svg" alt="phone callback" />
           </Contact>
           <Telephone href="">33 - 3245 - 4137</Telephone>
-          <Button onClick={() => pushContact()}>Contáctanos</Button>
+          <Button onClick={() => push()}>Contáctanos</Button>
         </Section>
       </NavBar>
 
@@ -153,7 +147,7 @@ export const Layout = ({ children }) => {
           <PhoneLogo src="/Icons/phone_callback.svg" alt="phone callback" />
           <Telephone href="">33 - 3245 - 4137</Telephone>
         </Contact>
-        <Button onClick={() => pushContact()}>Contáctanos</Button>
+        <Button onClick={() => push()}>Contáctanos</Button>
       </PhoneSection>
       {children}
       <Footer />

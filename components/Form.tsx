@@ -12,7 +12,7 @@ const Wrapper = styled.div`
       rgba(255, 255, 255, 0.9) 80%
     ),
     url("/Fondo.png") center/cover;
-  padding: 1em;
+  padding: 6em 1em;
   display: flex;
   flex-direction: column;
 
@@ -22,8 +22,8 @@ const Wrapper = styled.div`
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    justify-content: space-around;
-    padding: 3em;
+    justify-content: space-evenly;
+    padding: 6em 0;
   }
 `;
 
@@ -32,9 +32,9 @@ const Title = styled.h2`
   font-weight: 800;
   font-size: 2em;
   margin-bottom: 2em;
+  padding: 0 1em;
 
   @media (min-width: 768px) {
-    text-align: center;
     font-size: 3em;
   }
 
