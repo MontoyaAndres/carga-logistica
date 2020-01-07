@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Reveal, RevealMode } from "react-genie";
 
 import { Services } from "../components/Services";
 import { Experience } from "../components/Experience";
@@ -43,9 +44,11 @@ const BackgroundImage = styled.div`
 const index = () => {
   return (
     <>
-      <TitleSection>
-        <Title>Transportamos todo lo que tu negocio necesite.</Title>
-      </TitleSection>
+      <Reveal mode={RevealMode.Clone}>
+        <TitleSection>
+          <Title>Transportamos todo lo que tu negocio necesite.</Title>
+        </TitleSection>
+      </Reveal>
       <BackgroundImage />
       <Services />
       <Experience />

@@ -3,7 +3,7 @@
   "name": "carga-logistica",
   "build": {
     "env": {
-      "SENDGRID_API_KEY": "KEY_HERE"
+      "SENDGRID_API_KEY": "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"
     }
   }
 }
