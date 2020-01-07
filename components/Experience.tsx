@@ -61,7 +61,7 @@ const Box = styled.div`
 
 const TitleBox = styled.h2`
   color: #677282;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 2em;
   margin-top: 0;
 

@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   color: #677282;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 2em;
   margin-bottom: 2em;
 
@@ -58,7 +58,7 @@ const FormBox = styled.form`
 
 const FormTitle = styled.h3`
   color: #677282;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 2em;
   margin: 0;
   margin-bottom: 1em;
@@ -94,7 +94,7 @@ const Button = styled.button`
   color: white;
   padding: 1em 3em;
   border: none;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 export const Form = () => {

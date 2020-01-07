@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h2`
   color: #677282;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 2em;
   margin-top: 50px;
   padding: 10px;
@@ -34,7 +34,7 @@ const Button = styled.button`
   color: white;
   padding: 1em 5em;
   border: none;
-  font-weight: bold;
+  font-weight: 800;
   margin-top: 100px;
 `;
 

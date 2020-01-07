@@ -100,7 +100,7 @@ const PhoneLogo = styled.img`
 const Telephone = styled.a`
   color: #677282;
   margin-right: 2em;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 const Button = styled.button`
@@ -108,7 +108,7 @@ const Button = styled.button`
   color: white;
   padding: 1em 3em;
   border: none;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 export const Layout = ({ children }) => {

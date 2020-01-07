@@ -39,7 +39,7 @@ const Icon = styled.img`
 const Anchor = styled.a`
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 800;
 `;
 
 export const Footer = () => {

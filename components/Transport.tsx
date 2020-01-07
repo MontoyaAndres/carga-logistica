@@ -43,7 +43,7 @@ const Section = styled.section`
 const Title = styled.h2`
   color: white;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 800;
 
   @media (min-width: 768px) {
     font-size: 3rem;

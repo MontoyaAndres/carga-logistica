@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Sarabun&display=swap"
+            href="https://fonts.googleapis.com/css?family=Sarabun:400,800&display=swap"
             rel="stylesheet"
           />
         </Head>
