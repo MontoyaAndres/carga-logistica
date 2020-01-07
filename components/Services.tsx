@@ -33,9 +33,9 @@ const Wrapper = styled.div`
 
 const Card = styled.div`
   border: solid #eef0f1 1px;
-  height: 200px;
+  height: 250px;
   display: grid;
-  grid-template-rows: 1fr 2fr auto;
+  grid-template-rows: 50px 2fr auto;
   padding: 1em;
   margin-bottom: 1em;
 
