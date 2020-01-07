@@ -35,11 +35,11 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   background-color: white;
-  padding: 0 1em;
+  padding: 3em;
   margin: 1em 1em 0 1em;
   position: absolute;
   bottom: 0;
-  height: 70%;
+  height: 60%;
   box-sizing: border-box;
 
   @media (min-width: 640px) {
@@ -60,12 +60,17 @@ const Box = styled.div`
 const TitleBox = styled.h2`
   color: #677282;
   font-weight: 800;
-  font-size: 3em;
+  font-size: 2.3em;
   margin: 0;
+  margin-bottom: 1em;
+
+  @media (min-width: 768px) {
+    font-size: 3em;
+  }
 `;
 
 const Options = styled.section`
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
 
   &:last-child {
     padding-bottom: 0;
@@ -78,14 +83,16 @@ const IconContainer = styled.span`
 `;
 
 const Icon = styled.img`
-  margin-right: 1em;
-  width: 30px;
+  margin-right: 0.5em;
+
+  @media (min-width: 768px) {
+    width: 30px;
+  }
 `;
 
 const Anchor = styled.a`
   color: #f47c20;
-  font-size: 1em;
-  font-size: 1.2em;
+  font-size: 1.1em;
 
   @media (min-width: 768px) {
     font-size: 1.5em;

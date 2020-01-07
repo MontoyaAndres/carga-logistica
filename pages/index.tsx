@@ -24,7 +24,8 @@ const TitleSection = styled.div`
 const Title = styled.h1`
   color: #677282;
   font-weight: 800;
-  font-size: 3em;
+  font-size: 2.5em;
+  padding: 0 1em;
 
   @media (min-width: 768px) {
     font-size: 4em;
