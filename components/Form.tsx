@@ -3,12 +3,7 @@ import Router from "next/router";
 import styled from "styled-components";
 import fetch from "isomorphic-fetch";
 
-interface IValuesState {
-  name: string;
-  email: string;
-  telephone: string;
-  description: string;
-}
+import { IEmailValues } from "../types/IEmailValues";
 
 const Wrapper = styled.div`
   background: radial-gradient(
@@ -103,7 +98,7 @@ const Button = styled.button`
 `;
 
 export const Form = () => {
-  const [values, setValues] = useState<IValuesState>({
+  const [values, setValues] = useState<IEmailValues>({
     name: "",
     email: "",
     telephone: "",

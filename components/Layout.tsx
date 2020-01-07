@@ -67,6 +67,7 @@ const PhoneSection = styled.div<PhoneSectionProps>`
   flex-direction: column;
   padding: 1em 2em;
   box-shadow: 0 4px 10px -6px #222;
+  z-index: 1;
 
   @media (min-width: 640px) {
     padding: 2em 4em;
@@ -114,10 +115,14 @@ export const Layout = ({ children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   function pushContact() {
-    console.log("hola");
     const node = document.querySelector("#form");
 
-    scrollIntoView(node);
+    scrollIntoView(node, {
+      scrollMode: "if-needed",
+      block: "nearest",
+      inline: "nearest"
+    });
+    setMenuOpen(false);
   }
 
   return (

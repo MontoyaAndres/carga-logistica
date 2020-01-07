@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "carga-logistica",
+  "build": {
+    "env": {
+      "SENDGRID_API_KEY": "KEY_HERE"
+    }
+  }
+}
