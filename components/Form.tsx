@@ -93,11 +93,12 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
-  background-color: #f47c20;
   color: white;
   padding: 1em 3em;
   border: none;
   font-weight: 800;
+  background-color: ${props => (props.disabled ? "#677282" : "#f47c20")};
+  transition: background-color 1s ease;
 `;
 
 export const Form = () => {
@@ -107,6 +108,8 @@ export const Form = () => {
     telephone: "",
     description: ""
   });
+  const [isEmailSending, setEmailSending] = useState(false);
+
   const [formRef, formInView] = useInView({
     triggerOnce: true,
     threshold: 0.5
@@ -127,6 +130,8 @@ export const Form = () => {
 
   async function sendForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setEmailSending(true);
 
     const response = await fetch("/api", {
       method: "POST",
@@ -190,7 +195,9 @@ export const Form = () => {
             setValues({ ...values, [e.target.name]: e.target.value })
           }
         />
-        <Button type="submit">Enviar</Button>
+        <Button type="submit" disabled={isEmailSending}>
+          {isEmailSending ? "Enviando correo, por favor espere" : "Enviar"}
+        </Button>
       </FormBox>
     </Wrapper>
   );
