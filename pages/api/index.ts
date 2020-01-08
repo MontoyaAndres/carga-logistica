@@ -3,10 +3,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { IEmailValues } from "../../types/IEmailValues";
 
+sendGrid.setApiKey(process.env.SENDGRID_API_KEY);
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, email, telephone, description }: IEmailValues = req.body;
-
-  sendGrid.setApiKey(process.env.SENDGRID_API_KEY);
 
   const content = {
     to: "rmcarga.logistica@gmail.com", // carga logistica email
@@ -21,11 +21,6 @@ Teléfono: ${telephone}<br>
     `
   };
 
-  try {
-    await sendGrid.send(content);
-    res.status(200).send({ response: true });
-  } catch (error) {
-    console.error(error);
-    res.status(400).send({ response: false });
-  }
+  await sendGrid.send(content);
+  return res.status(200).json({ response: true });
 };
