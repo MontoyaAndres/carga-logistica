@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Router from "next/router";
 import styled from "styled-components";
 import fetch from "isomorphic-fetch";
+import { useInView } from "react-intersection-observer";
+import { useSpring, animated } from "react-spring";
 
 import { IEmailValues } from "../types/IEmailValues";
 
@@ -45,7 +47,7 @@ const Title = styled.h2`
   }
 `;
 
-const FormBox = styled.form`
+const FormBox = styled(animated.form)`
   background-color: white;
   box-shadow: 0 0 10px -5px;
   display: flex;
@@ -105,6 +107,23 @@ export const Form = () => {
     telephone: "",
     description: ""
   });
+  const [formRef, formInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5
+  });
+  const formStyle = useSpring({
+    opacity: 0,
+    ...(formInView && {
+      from: {
+        opacity: 0,
+        transform: "scale3d(0.3, 0.3, 0.3)"
+      },
+      to: {
+        opacity: 1,
+        transform: "scale3d(1, 1, 1)"
+      }
+    })
+  });
 
   async function sendForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -126,11 +145,11 @@ export const Form = () => {
   }
 
   return (
-    <Wrapper id="form">
+    <Wrapper ref={formRef} id="form">
       <Title>
         Llena el formulario y cotiza tu servicio de transportes hoy.
       </Title>
-      <FormBox method="POST" onSubmit={sendForm}>
+      <FormBox method="POST" onSubmit={sendForm} style={formStyle}>
         <FormTitle>Contáctanos</FormTitle>
         <Input
           name="name"

@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useInView } from "react-intersection-observer";
+import { useSpring, useTrail, animated } from "react-spring";
 
 import { pushToContact } from "../utils/pushToContact";
 
-const Title = styled.h2`
+const Title = styled(animated.h2)`
   color: #677282;
   font-weight: 800;
   font-size: 3em;
@@ -33,7 +35,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Card = styled.div`
+const Card = styled(animated.div)`
   border: solid #eef0f1 1px;
   height: 250px;
   display: grid;
@@ -89,14 +91,41 @@ const dataCard = [
 ];
 
 export const Services = () => {
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.4
+  });
+  const titleStyle = useSpring({ opacity: titleInView ? 1 : 0, delay: 10 });
+
+  const [cardRef, cardInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.4
+  });
+  const cardAnimated = useTrail(dataCard.length, {
+    opacity: 0,
+    ...(cardInView && {
+      from: {
+        opacity: 0,
+        transform: "translateY(100px)"
+      },
+      to: {
+        opacity: 1,
+        transform: "translateY(20px)"
+      }
+    }),
+    config: { tension: 250, duration: 600 }
+  });
+
   return (
     <>
-      <Title>Nuestros servicios</Title>
-      <Wrapper>
-        {dataCard.map((card, index) => (
-          <Card key={index} onClick={() => pushToContact()}>
-            <TitleCard>{card.title}</TitleCard>
-            <DescriptionCard>{card.description}</DescriptionCard>
+      <Title ref={titleRef} style={titleStyle}>
+        Nuestros servicios
+      </Title>
+      <Wrapper ref={cardRef}>
+        {cardAnimated.map((animation, index) => (
+          <Card key={index} onClick={() => pushToContact()} style={animation}>
+            <TitleCard>{dataCard[index].title}</TitleCard>
+            <DescriptionCard>{dataCard[index].description}</DescriptionCard>
             <ActionsCard>
               <span>Cotizar servicio</span>
               <img src="/Icons/arrow_forward.svg" alt="Arrow forward" />
