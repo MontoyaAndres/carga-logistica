@@ -3,7 +3,8 @@
   "name": "carga-logistica",
   "build": {
     "env": {
-      "SENDGRID_API_KEY": "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"
+      "SENDGRID_API_KEY": "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",
+      "EMAIL_API": "http://localhost:8080/send-email"
     }
   }
 }
