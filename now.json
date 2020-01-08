@@ -3,7 +3,7 @@
   "name": "carga-logistica",
   "build": {
     "env": {
-      "EMAIL_API": "http://localhost:8080/send-email"
+      "EMAIL_API": "https://diey.herokuapp.com/send-email"
     }
   }
 }
