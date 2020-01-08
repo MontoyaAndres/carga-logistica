@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { Reveal, RevealMode } from "react-genie";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 import { Services } from "../components/Services";
 import { Experience } from "../components/Experience";
 import { Transport } from "../components/Transport";
 import { Form } from "../components/Form";
 
-const TitleSection = styled.div`
+const TitleSection = styled(motion.div)`
   padding: 1em 2em;
   display: flex;
   justify-content: center;
@@ -42,13 +43,28 @@ const BackgroundImage = styled.div`
 `;
 
 const index = () => {
+  const variants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1
+    }
+  };
+
+  const [ref, inView] = useInView({ triggerOnce: true });
+
   return (
     <>
-      <Reveal mode={RevealMode.Clone}>
-        <TitleSection>
-          <Title>Transportamos todo lo que tu negocio necesite.</Title>
-        </TitleSection>
-      </Reveal>
+      <TitleSection
+        ref={ref}
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+      >
+        <Title>
+          {inView && <>Transportamos todo lo que tu negocio necesite.</>}
+        </Title>
+      </TitleSection>
       <BackgroundImage />
       <Services />
       <Experience />

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Reveal, RevealMode } from "react-genie";
 
 import { pushToContact } from "../utils/pushToContact";
 
@@ -92,9 +91,7 @@ const dataCard = [
 export const Services = () => {
   return (
     <>
-      <Reveal mode={RevealMode.Clone} delay={50}>
-        <Title>Nuestros servicios</Title>
-      </Reveal>
+      <Title>Nuestros servicios</Title>
       <Wrapper>
         {dataCard.map((card, index) => (
           <Card key={index} onClick={() => pushToContact()}>
