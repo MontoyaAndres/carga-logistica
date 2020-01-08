@@ -54,7 +54,7 @@ export const Footer = () => {
           <IconContainer>
             <Icon src="/Icons/phone_callback_white.svg" alt="phone callback" />
           </IconContainer>
-          <Anchor>33-2630-8608</Anchor>
+          <Anchor>33-3245-4137</Anchor>
         </div>
         <br />
         <div>
