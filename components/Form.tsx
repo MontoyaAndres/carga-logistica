@@ -133,7 +133,7 @@ export const Form = () => {
 
     setEmailSending(true);
 
-    const response = await fetch("/api", {
+    const response = await fetch("http://localhost:8080/send-email", {
       method: "POST",
       mode: "cors",
       headers: {
